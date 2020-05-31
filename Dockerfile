@@ -1,11 +1,10 @@
-From jenkins/jnlp-slave:alpine
+From jenkins/jnlp-agent-alpine:latest
 
 USER root
 
 RUN set -ex \
-&& apk --no-cache add docker curl \
-&& adduser -D -S -G jenkins docker
+&& apk --no-cache update \
+&& apk --no-cache upgrade --available \
+&& apk --no-cache add docker curl
 
-USER jenkins
-
-ENTRYPOINT ["jenkins-agent"]
+ENTRYPOINT ["jenkins-slave"]
