@@ -3,7 +3,7 @@ From jenkins/jnlp-slave:alpine
 USER root
 
 RUN set -ex \
-&& apk --no-cache add docker \
+&& apk --no-cache add docker curl \
 && adduser -D -S -G jenkins docker
 
 USER jenkins
